@@ -1,4 +1,4 @@
-const { User, Book } = require('../models');
+const { User } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -8,10 +8,10 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
-                    .populate('savedBooks')
 
                 return userData;
             }
+
             throw new AuthenticationError('Not logged in')
         }
     },
@@ -24,6 +24,7 @@ const resolvers = {
 
             return { user, token }
         },
+
         login: async (parent, { email, password }) => {
 
             const user = await User.findOne({ email });
@@ -32,7 +33,7 @@ const resolvers = {
             }
 
             const correctPw = await user.isCorrectPassword(password);
-            
+
             if (!correctPw) {
                 throw new AuthenticationError('Incorrect Password');
             }
@@ -41,29 +42,29 @@ const resolvers = {
             return { token, user }
         },
 
-        saveBook: async (paren, { content }, context) => {
-            if (context.user) {
-                const userData = await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $addToSet: { savedBooks: content } },
+        saveBook: async (parent, { bookData }, { user }) => {
+            if (user) {
+                const updatedUser = await User.findByIdAndUpdate(
+                    { _id: user._id },
+                    { $addToSet: { savedBooks: bookData } },
                     { new: true, runValidators: true }
                 );
 
-                return userData;
+                return updatedUser;
             }
 
             throw new AuthenticationError('You need to be logged in!')
         },
 
-        removeBook: async (parents, { bookId }, context) => {
-            if (context.user) {
-                const userData = await User.findOneAndUpdate(
-                    { _id: context.user._id },
+        removeBook: async (parents, { bookId }, { user }) => {
+            if (user) {
+                const modifiedUser = await User.findOneAndUpdate(
+                    { _id: user._id },
                     { $pull: { savedBooks: { bookId: bookId } } },
                     { new: true, runValidators: true }
                 );
 
-                return userData;
+                return modifiedUser;
             }
 
             throw new AuthenticationError('You need to be logged in!')
