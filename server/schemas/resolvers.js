@@ -42,11 +42,11 @@ const resolvers = {
             return { token, user }
         },
 
-        saveBook: async (parent, { bookData }, { user }) => {
+        saveBook: async (parent, { content }, { user }) => {
             if (user) {
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: user._id },
-                    { $addToSet: { savedBooks: bookData } },
+                    { $addToSet: { savedBooks: content } },
                     { new: true, runValidators: true }
                 );
 
