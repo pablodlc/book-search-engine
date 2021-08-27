@@ -3,7 +3,7 @@
 Please visit the deployed application by clicking the following link: [**BSE**]().  
 A video about **BSE** can be found here: [**BSE** on YouTube!](https://www.youtube.com/watch?v=W5e_aKWikWQ)
 
-![BSE](./client/assets/BSE-saved.png)
+![BSE](./client/src/assets/BSE-saved.png)
 
 ### Table of Contents
 
