@@ -1,6 +1,6 @@
 # **BSE**: book-search-engine
 
-Please visit the deployed application by clicking the following link: [**BSE**]().  
+Please visit the deployed application by clicking the following link: [**BSE**](https://bse-pablodlc.herokuapp.com/).  
 A video about **BSE** can be found here: [**BSE** on YouTube!](https://www.youtube.com/watch?v=W5e_aKWikWQ)
 
 ![BSE](./client/src/assets/BSE-saved.png)
