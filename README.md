@@ -3,7 +3,7 @@
 Please visit the deployed application by clicking the following link: [**BSE**]().  
 A video about **BSE** can be found here: [**BSE** on YouTube!](https://www.youtube.com/watch?v=W5e_aKWikWQ)
 
-![BSE](./assets/BSE-saved.png)
+![BSE](./client/assets/BSE-saved.png)
 
 ### Table of Contents
 
@@ -14,7 +14,7 @@ A video about **BSE** can be found here: [**BSE** on YouTube!](https://www.youtu
 
 ## Description
 
-book-search-engine (which I call **BSE** for short) is a MERN-Stack app powered by Apollo Server and GraphQL on the backend. BSE features authentication utilizing *bcrypt*, *jsonwebtoken*, and *jwt-decode* dependencies in order to feature signup, log in, and log out functionality. Once logged in, user's can search books for data about the book: author, title, a description, and an image of the book cover. On the bottom of cards that generate based on the user's input, there is a button that reads, "Save This Book!". Clicking that button saves that book to the user's book list. Also, after clicking, the button's text changes to, "Book Saved!" so the user knows the save was successful. After books are saved from the search, the user can then navigate to their book list by clicking the `See Your Books` link at the top of the nav bar. This page will display cards with all of the books saved by the user. At the bottom of these cards is a button that reads, "Delete This Book!" which removes the book from their list.
+book-search-engine (which I call **BSE** for short) is a MERN-Stack app powered by Apollo Server and GraphQL on the backend. BSE features authentication utilizing _bcrypt_, _jsonwebtoken_, and _jwt-decode_ dependencies in order to feature signup, log in, and log out functionality. Once logged in, user's can search books for data about the book: author, title, a description, and an image of the book cover. On the bottom of cards that generate based on the user's input, there is a button that reads, "Save This Book!". Clicking that button saves that book to the user's book list. Also, after clicking, the button's text changes to, "Book Saved!" so the user knows the save was successful. After books are saved from the search, the user can then navigate to their book list by clicking the `See Your Books` link at the top of the nav bar. This page will display cards with all of the books saved by the user. At the bottom of these cards is a button that reads, "Delete This Book!" which removes the book from their list.
 
 ## User Story
 
